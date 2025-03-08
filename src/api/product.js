@@ -2,47 +2,51 @@ const ServiceProduct = require("../service/product")
 
 class ControllerProduct {    
     
-    FindAll(_, res){
+    async FindAll(_, res){
         try{    
-            const response = ServiceProduct.FindAll();
+            const response = await ServiceProduct.FindAll();
             res.status(200).send({ response });
         }catch(e){
             res.status(500).send({ message: e.message });
         }
     }
 
-    FindByIndex(req, res){
+    async FindById(req, res){
         try{
-            const index = req.params;    
-            const response = ServiceProduct.FindAll(index);
+            const { id } = req.params;    
+            const response = await ServiceProduct.FindById(id);
             res.status(200).send({ response });
         }catch(e){
             res.status(500).send({ message: e.message });
         }
     }
 
-    Create(_, res){
-        try{    
-            const response = ServiceProduct.FindAll();
-            res.status(200).send({ response });
+    async Create(req, res){
+        try{  
+            const { name, value } = req.body;  
+            await ServiceProduct.Create(name, value);
+            res.status(201).send({});
         }catch(e){
             res.status(500).send({ message: e.message });
         }
     }
 
-    Update(_, res){
-        try{    
-            const response = ServiceProduct.FindAll();
-            res.status(200).send({ response });
+    async Update(req, res){
+        try{ 
+            const { id } = req.params;
+            const { name, value }  = req.body;
+            await ServiceProduct.Update(id, name, value);
+            res.status(200).send({});
         }catch(e){
             res.status(500).send({ message: e.message });
         }
     }
 
-    Delete(_, res){
-        try{    
-            const response = ServiceProduct.FindAll();
-            res.status(200).send({ response });
+    async Delete(req, res){
+        try{
+            const { id } = req.params;    
+            await ServiceProduct.Delete(id);
+                res.status(204).send({});
         }catch(e){
             res.status(500).send({ message: e.message });
         }
