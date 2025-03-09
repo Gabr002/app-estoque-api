@@ -16,42 +16,30 @@ O **APP-ESTOQUE-API** é uma API desenvolvida para armazenar e gerenciar informa
    git clone https://github.com/seu-usuario/app-estoque-api.git
    cd app-estoque-api
    ```
+   
+2.**Instale as dependências**
+   ```sh
+   npm install
+   ```
+
+3. **Configure o banco de dados**
+- Crie um banco de dados MySQL
+- Configure o arquivo .env com as credenciais do banco
+- Configure o arquivo .env com as credenciais do banco
+
+4. **Execute a aplicação**
+   ```sh
+      npm run dev
+   ```
 
 
-Instale as dependências
-
-npm install
-
-Configure o banco de dados
-
-Crie um banco de dados MySQL
-
-Configure o arquivo .env com as credenciais do banco
-
-Execute a aplicação
-
-npm run dev
-
-🧪 Rodando os Testes
+## 🧪 Rodando os Testes
 
 Para executar os testes de integração, use:
+   ```sh
+      npm test
+   ```
 
-npm test
-
-📂 Estrutura do Projeto
-
-app-estoque-api/
-│── src/
-│   ├── api/            # Controladores da API
-│   ├── model/          # Modelos do Sequelize
-│   ├── routes/         # Rotas da aplicação
-│   ├── service/        # Regras de negócio
-│── test/               # Testes de integração
-│── .env                # Variáveis de ambiente
-│── index.js            # Ponto de entrada da aplicação
-│── package.json        # Dependências e scripts
-│── README.md           # Documentação
-
-📜 Licença
+## 📜 Licença
 
 Este projeto está sob a licença MIT.
